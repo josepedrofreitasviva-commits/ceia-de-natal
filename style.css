@@ -1,0 +1,415 @@
+:root {
+    /* Paleta Natalina Refinada */
+    --primary-red: #c41e3a;
+    --dark-red: #7a0f20;
+    --primary-green: #0e7c3e;
+    --dark-green: #064d28;
+    --gold: #c9a227;
+    --light-gold: #fdf3d7;
+    --snow-white: #ffffff;
+    --text-dark: #2d2d2d;
+    --text-muted: #6b7280;
+    --bg-body: #fbfaf5;
+    --bg-card: #ffffff;
+    --border-light: #e5e5e5;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg-body);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 1.5rem;
+    overflow-x: hidden;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Skip link para acessibilidade */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: var(--primary-red);
+    color: white;
+    padding: 10px 16px;
+    z-index: 10000;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    transition: top 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.skip-link:focus {
+    top: 0.5rem;
+}
+
+/* Efeito de Neve Sutil */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background-image: radial-gradient(circle at 15% 15%, #fff 2px, transparent 2px),
+        radial-gradient(circle at 35% 40%, #fff 1.5px, transparent 1.5px),
+        radial-gradient(circle at 60% 20%, #fff 2px, transparent 2px),
+        radial-gradient(circle at 80% 60%, #fff 1.5px, transparent 1.5px),
+        radial-gradient(circle at 45% 75%, #fff 2px, transparent 2px);
+    background-size: 320px 320px;
+    animation: snowFall 12s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes snowFall {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 320px; }
+}
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    padding: 0 1rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 3rem 0 1.5rem;
+    animation: fadeInDown 0.7s ease both;
+}
+
+.title {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: clamp(2.25rem, 7vw, 4.5rem);
+    color: var(--primary-red);
+    text-shadow: 2px 2px 0px var(--gold), 0 0 15px rgba(196, 30, 58, 0.25);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--primary-green);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    margin-top: 0.75rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.selection-card {
+    background: var(--bg-card);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    animation: fadeInUp 0.7s ease both;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-light);
+}
+
+/* Detalhe de "Laço de Presente" no topo do card */
+.selection-card h2 {
+    margin-bottom: 1.75rem;
+    color: var(--primary-red);
+    text-align: center;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.form-group {
+    margin-bottom: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.form-group label {
+    font-weight: 700;
+    color: var(--primary-green);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-group label::before {
+    content: "✨";
+    font-size: 1rem;
+}
+
+.form-group input {
+    padding: clamp(0.75rem, 2vw, 1rem);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    transition: all var(--transition);
+    background: #fafafa;
+    font-family: inherit;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 4px rgba(196, 30, 58, 0.1);
+    background: var(--snow-white);
+}
+
+.form-group input:disabled {
+    background: #f1f1f1;
+    cursor: not-allowed;
+}
+
+.food-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: clamp(14px, 3vw, 20px);
+    margin-bottom: 2rem;
+}
+
+.category {
+    background: #fafafa;
+    padding: clamp(14px, 3vw, 18px);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--border-light);
+    transition: all var(--transition);
+}
+
+.category:hover {
+    border-color: var(--gold);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.category h3 {
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid var(--light-gold);
+    padding-bottom: 0.5rem;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.food-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition);
+    font-weight: 500;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    border: 1px solid transparent;
+}
+
+.food-option:hover {
+    background: #fff8f8;
+    color: var(--primary-red);
+    transform: translateX(4px);
+    border-color: rgba(196, 30, 58, 0.15);
+}
+
+.food-option input[type="radio"] {
+    accent-color: var(--primary-red);
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.food-option input:disabled + span {
+    color: #b0b0b0;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: clamp(0.875rem, 2vw, 1.125rem);
+    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 800;
+    cursor: pointer;
+    transition: all var(--transition);
+    box-shadow: 0 4px 12px rgba(122, 15, 32, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: inherit;
+    margin-top: 0.5rem;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(122, 15, 32, 0.35);
+    filter: brightness(1.05);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(122, 15, 32, 0.2);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.confirmed-list {
+    background: var(--bg-card);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    animation: fadeInUp 0.7s ease both;
+    margin-bottom: 3rem;
+    border: 1px solid var(--border-light);
+}
+
+.confirmed-list h2 {
+    margin-bottom: 1.75rem;
+    color: var(--primary-green);
+    text-align: center;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: clamp(14px, 3vw, 18px);
+}
+
+.choice-item {
+    background: var(--snow-white);
+    padding: clamp(12px, 3vw, 16px);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--gold);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.5s ease both;
+    transition: transform var(--transition), box-shadow var(--transition);
+    border: 1px solid var(--border-light);
+}
+
+.choice-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.choice-item .person {
+    font-weight: 800;
+    color: var(--primary-green);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.choice-item .food {
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    color: var(--text-muted);
+}
+
+.empty-msg {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    padding: 1.5rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+    color: var(--primary-green);
+    font-weight: 700;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    opacity: 0.9;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 640px) {
+    body { padding: 1rem; }
+    header { margin-bottom: 2rem; padding: 2rem 0 1rem; }
+    .santa-gif img { width: clamp(80px, 18vw, 140px); }
+    .food-categories { grid-template-columns: 1fr; }
+    .selection-card, .confirmed-list { padding: 1.25rem; }
+    .choice-item { flex-direction: column; gap: 0.5rem; text-align: center; }
+    footer { margin-top: 2rem; padding-bottom: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    body::before { display: none; }
+}
+}

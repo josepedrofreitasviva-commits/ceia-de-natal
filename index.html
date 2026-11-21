@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="pt-br" data-type="software" data-radius="soft" data-buttons="solid" data-motion="1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="page-type" content="software">
+    <meta name="site-kind" content="software">
+    <meta name="description" content="Organize sua Ceia de Natal: cada convidado escolhe qual prato vai levar. Sem repetições, sem confusão.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
+    <title>Ceia de Natal – Organização de Amigo Secreto</title>
+</head>
+<body>
+    <a href="#main" class="skip-link">Pular para o conteúdo principal</a>
+
+    <div class="container">
+        <header>
+            <h1 class="title">Ceia de Natal</h1>
+            <p class="subtitle">Ajude a organizar nossa festa! Escolha qual prato você vai levar para a ceia.</p>
+        </header>
+
+        <main id="main">
+            <section class="selection-card" aria-label="Sua escolha de prato">
+                <h2>Sua Escolha</h2>
+                <div class="form-group">
+                    <label for="userName">Seu Nome</label>
+                    <input type="text" id="userName" placeholder="Digite seu nome..." required maxlength="60" aria-required="true">
+                </div>
+
+                <div class="food-categories">
+                    <div class="category">
+                        <h3>Entradas</h3>
+                        <div class="options" id="cat-entradas"></div>
+                    </div>
+                    <div class="category">
+                        <h3>Pratos Principais</h3>
+                        <div class="options" id="cat-principais"></div>
+                    </div>
+                    <div class="category">
+                        <h3>Acompanhamentos</h3>
+                        <div class="options" id="cat-acompanhamentos"></div>
+                    </div>
+                    <div class="category">
+                        <h3>Sobremesas &amp; Bebidas</h3>
+                        <div class="options" id="cat-sobremesas"></div>
+                    </div>
+                </div>
+
+                <button id="btnConfirmar" class="btn-primary">Confirmar Minha Escolha</button>
+            </section>
+
+            <section class="confirmed-list" aria-label="Quem leva o quê">
+                <h2>Quem leva o quê?</h2>
+                <div id="listContainer" class="list-grid">
+                    <!-- Confirmed choices injected by JS -->
+                    <p class="empty-msg">Ninguém escolheu nada ainda. Seja o primeiro!</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Boas Festas! ✨</p>
+        </footer>
+    </div>
+    <script src="back.js"></script>
+</body>
+</html>>
